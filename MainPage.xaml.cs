@@ -1,23 +1,50 @@
-﻿namespace Goals;
+using Goals.Models;
+using System.Text.Json;
+
+namespace Goals;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public List<Goal> Goals { get; set; } = new();
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await LoadGoalsAsync();
+    }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+    private async Task LoadGoalsAsync()
+    {
+        try
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("goals.json");
+            Goals = await JsonSerializer.DeserializeAsync<List<Goal>>(stream) ?? new List<Goal>();
+            GoalsCollection.ItemsSource = Goals;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error loading goals: {ex.Message}");
+            Goals = new List<Goal>();
+            GoalsCollection.ItemsSource = Goals;
+        }
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    private void OnGoalSelected(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is Goal goal)
+        {
+            System.Diagnostics.Debug.WriteLine($"Navigate to Detail Page for goal: {goal.Title}");
+            ((CollectionView)sender).SelectedItem = null;
+        }
+    }
+
+    private void OnAddGoalClicked(object sender, EventArgs e)
+    {
+        System.Diagnostics.Debug.WriteLine("Navigate to Add Item Page");
+    }
 }

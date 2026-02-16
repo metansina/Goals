@@ -1,0 +1,30 @@
+[
+  {
+    "Title": "Launch Personal Portfolio Website",
+    "Description": "Design, develop, and deploy a personal portfolio website to showcase projects and skills.",
+    "DueDate": "2026-04-30",
+    "Status": "In progress",
+    "Priority": "High"
+  },
+  {
+    "Title": "Complete AI Product Design Course",
+    "Description": "Finish all modules and submit final project for the AI-focused product design certification.",
+    "DueDate": "2026-03-15",
+    "Status": "To do",
+    "Priority": "Medium"
+  },
+  {
+    "Title": "Run a Half Marathon",
+    "Description": "Train consistently and participate in an official half marathon event.",
+    "DueDate": "2026-06-20",
+    "Status": "In progress",
+    "Priority": "High"
+  },
+  {
+    "Title": "Read 12 Books This Year",
+    "Description": "Read at least one book per month across business, psychology, and technology topics.",
+    "DueDate": "2026-12-31",
+    "Status": "Done",
+    "Priority": "Low"
+  }
+]
