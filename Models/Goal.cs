@@ -7,4 +7,5 @@ public class Goal
     public DateTime DueDate { get; set; }
     public required string Status { get; set; }
     public required string Priority { get; set; }
+    public required string Category { get; set; }
 }

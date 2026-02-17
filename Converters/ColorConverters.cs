@@ -8,9 +8,9 @@ public class StatusColorConverter : IValueConverter
     {
         return value?.ToString() switch
         {
-            "To do" => Color.FromArgb("#6B7280"),
-            "In progress" => Color.FromArgb("#3B82F6"),
-            "Done" => Color.FromArgb("#10B981"),
+            "To do" => Color.FromArgb("#78716C"),
+            "In progress" => Color.FromArgb("#FB923C"),
+            "Done" => Color.FromArgb("#15803D"),
             _ => Color.FromArgb("#6B7280")
         };
     }
@@ -27,9 +27,9 @@ public class PriorityColorConverter : IValueConverter
     {
         return value?.ToString() switch
         {
-            "High" => Color.FromArgb("#EF4444"),
-            "Medium" => Color.FromArgb("#FACC15"),
-            "Low" => Color.FromArgb("#10B981"),
+            "High" => Color.FromArgb("#FECACA"),
+            "Medium" => Color.FromArgb("#FEF3C7"),
+            "Low" => Color.FromArgb("#DCFCE7"),
             _ => Color.FromArgb("#6B7280")
         };
     }
